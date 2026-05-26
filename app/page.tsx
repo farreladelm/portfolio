@@ -170,7 +170,7 @@ export default function Home() {
       </Section>
 
       {/* Footer Label */}
-      <footer className="px-6 md:px-12 py-12 border-t border-divider flex justify-between items-center bg-background">
+      <footer className="w-full max-w-[1400px] mx-auto px-6 md:px-12 py-12 border-t border-divider flex justify-between items-center bg-background">
         <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
           © 2026 Farrel Adel Mohammad
         </span>

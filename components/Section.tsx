@@ -21,7 +21,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`relative w-full px-6 md:px-12 py-16 md:py-24 ${className}`}
+      className={`relative w-full max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-24 ${className}`}
     >
       {showDivider && (
         <motion.div
@@ -43,7 +43,7 @@ export default function Section({
           {label}
         </motion.span>
       )}
-      <div className="max-w-[1400px]">{children}</div>
+      <div>{children}</div>
     </section>
   );
 }

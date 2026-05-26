@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useMotionValueEvent, MotionValue } from "framer-motion";
 
 interface ScrollRevealTextProps {
   text: string;
@@ -48,7 +48,7 @@ export default function ScrollRevealText({ text }: ScrollRevealTextProps) {
 
 interface WordProps {
   children: string;
-  progress: any;
+  progress: MotionValue<number>;
   range: [number, number];
 }
 

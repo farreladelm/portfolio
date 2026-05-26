@@ -13,22 +13,6 @@ export default function Hero() {
   const measureRef = useRef<HTMLSpanElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    // Switch to setTimeout to prevent overlapping transitions
-    const timer = setTimeout(() => {
-      const nextIndex = (roleIndex + 1) % roles.length;
-      startTransition(roles[nextIndex], nextIndex);
-    }, 4500);
-
-    return () => clearTimeout(timer);
-  }, [roleIndex]);
-
-  useEffect(() => {
-    if (measureRef.current) {
-      setTargetWidth(measureRef.current.offsetWidth);
-    }
-  }, [roleIndex]);
-
   const scramble = (targetText: string) => {
     let iteration = 0;
     const duration = 1200;
@@ -61,6 +45,22 @@ export default function Hero() {
     setRoleIndex(nextIndex);
     scramble(targetText);
   };
+
+  useEffect(() => {
+    // Switch to setTimeout to prevent overlapping transitions
+    const timer = setTimeout(() => {
+      const nextIndex = (roleIndex + 1) % roles.length;
+      startTransition(roles[nextIndex], nextIndex);
+    }, 4500);
+
+    return () => clearTimeout(timer);
+  }, [roleIndex]);
+
+  useEffect(() => {
+    if (measureRef.current) {
+      setTargetWidth(measureRef.current.offsetWidth);
+    }
+  }, [roleIndex]);
 
   return (
     <div className="relative flex flex-col justify-center min-h-[calc(100vh-12rem)] md:min-h-[calc(100vh-16rem)] overflow-hidden">
