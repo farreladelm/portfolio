@@ -19,7 +19,8 @@ ENV NODE_ENV=production
 
 # Copy only necessary files
 COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
+# uneeded to copy public folder since we doesn't have any static files in public folder
+# COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 
